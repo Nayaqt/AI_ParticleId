@@ -1,0 +1,43 @@
+# Define name of the model to be saved :
+model_name : multi_class_cnn
+
+# Model type : choose from (binary, multi_class), only multi_class is supported with CNN predictions.
+model_type : multi_class
+
+# Add data directory to load:
+data_directory : data
+
+# Add directory where images and datasets are stored:
+image_saving_directory : data/custom_datasets/image_data
+small_saving_directory : data/custom_datasets/small_data
+
+# Define if using cnn predictions :
+use_cnn_predictions : False
+
+# Define which CNN_model to load if use_cnn_predictions == True:
+cnn_model : /workspaces/course-project/Cnn_multi_class_nJets_100000_wz__lr_0.0001_bs_1000_epochs_50_06-09_08h46/model_20.h5
+
+# Add jets types to be loaded : use [qcd, top, wz] to load all types of jets.
+# IMPORTANT : Keep the same order QCD, WZ, TOP
+jets : ['qcd', 'wz', 'top']
+
+#Add number of jets per class to use:
+nJets : 1000
+
+# Hard-coded values for NN :
+NN_structure:
+  # Training parameters :
+  lr : 0.0001
+  batch_size : 132
+  nEpochs : 10
+  
+  #Set Dropout rate. 0 is disabled
+  dropout : 0.2
+  
+  #Decide wether to use batch normalization:
+  batch_normalization : False
+
+  # Structure of the dense layers : 
+  input_layer : 256
+  dense_layers : [128, 64, 32, 30]
+

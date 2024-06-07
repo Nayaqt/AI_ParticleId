@@ -1,0 +1,38 @@
+# Define name of the model to be saved :
+model_name : Cnn
+
+# Define model type (multi_class or binary):
+model_type : multi_class
+
+# Add path to data directory :
+data_directory : data
+
+#Add path to saving directory :
+images_directory : data/images_dataset
+
+# Add jets types to be loaded : use [qcd, top, wz] to load all types for a multiclassification task.
+# IMPORTANT : Keep the same order QCD, WZ, TOP
+jets : ['qcd','wz', 'top']
+
+# Add number of images per class to get, fill nothing to use all images.
+nJets : 1000
+
+# Add parameters for NN :
+NN_structure:
+  # Training parameters :
+  lr : 0.0001
+  batch_size : 1000
+  nEpochs : 10
+  
+  #Set Dropout rate. 0 is disabled
+  dropout : 0
+  
+  #Decide wether to use batch normalization:
+  batch_normalization : False
+
+  #Parameters for the architecture (first 2 Convolutional layers):
+  nFilters : 32
+  kernel_size : 3
+
+
+

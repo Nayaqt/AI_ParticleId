@@ -1,0 +1,34 @@
+# Define name of the model to be saved :
+model_name : multi
+
+# Add data directory :
+data_directory : data
+
+# Model type : choose from (binary, multi_class)
+model_type : binary
+
+# Add jets types to be loaded : use [qcd, top, wz] to load all types of jets.
+# IMPORTANT : Keep the same order QCD, WZ, TOP
+jets : ['qcd', 'top']
+
+# Number of jets per flavor to use, leave empty to use all jets.
+nJets : 1000
+
+# Hard-coded values for NN :
+NN_structure:
+  # Training parameters :
+  lr : 0.001
+  batch_size : 1000
+  nEpochs : 10
+
+  
+  #Set Dropout rate. 0 is disabled
+  dropout : 0.2
+  
+  #Decide wether to use batch normalization:
+  batch_normalization : False
+
+  # Structure of the dense layers : 
+  input_layer : 512
+  dense_layers : [256, 128, 64, 32, 16]
+
